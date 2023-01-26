@@ -37,7 +37,7 @@ resource "ansible_host" "ansible_control_plane_servers" {
 
 resource "ansible_host" "ansible_agent_servers" {
   count = length(var.agent_hosts)
-  inventory_hostname = "${element(var.agent_hosts, count.index)}"
+  inventory_hostname = "${element(var.agent_hosts, count.index)}.${var.cluster_subdomain}.${var.global_lab_domain}"
   groups = ["all", "k3s_cluster", "k3s_agent"]
   vars = {
     ansible_host = element(var.agent_public_ips, count.index)
