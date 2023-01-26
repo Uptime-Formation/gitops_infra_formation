@@ -1,0 +1,18 @@
+base_user_password: devops101
+allow_passwd_ssh_connection: "yes"
+ssh_public_key: ~
+
+ansible_user: root
+
+
+## Which environment to setup
+formation_ansible: yes
+docker_state: present
+
+testvar: prout
+
+
+## K8S configuration
+
+- ingress_nginx_version
+- 
